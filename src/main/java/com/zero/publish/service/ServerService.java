@@ -36,7 +36,6 @@ public class ServerService {
         this.serverConfig = configBuilder.getServerConfig();
     }
     public void invoke(String targetDir,String remoteUrl) throws FileNotFoundException {
-        //开始服务器运行
         invokeShell(serverConfig.getIp(),serverConfig.getPort(),serverConfig.getUsername(),
                 serverConfig.getPassword(), targetDir,remoteUrl);
     }
@@ -87,6 +86,7 @@ public class ServerService {
             if(null == connection) {
                 throw new RuntimeException("远程登录失败");
             }
+            //项目启动
             RemoteInvokeShell(connection, mergeCmd);
         }
 
@@ -167,7 +167,6 @@ public class ServerService {
     private File getShellFile() throws FileNotFoundException {
 
         String path = ResourceUtils.getURL("classpath:").getPath();
-        System.out.println(path);
         for (File file : new File(path).listFiles()) {
             if(file.getName().contains(".sh")) {
                 return file;
@@ -222,7 +221,7 @@ public class ServerService {
             session.execCommand(cmds);
             BufferedReader br = new BufferedReader(new InputStreamReader(session.getStdout()));
             BufferedReader brErr = new BufferedReader(new InputStreamReader(session.getStderr()));
-            String line;
+            String line=null;
             while ((line = br.readLine()) != null) {
                 log.info("br={}", line);
             }
