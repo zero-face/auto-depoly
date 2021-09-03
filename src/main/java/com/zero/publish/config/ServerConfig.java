@@ -1,4 +1,4 @@
-package com.zero.publish.po;
+package com.zero.publish.config;
 
 import lombok.Data;
 
@@ -15,7 +15,7 @@ public class ServerConfig {
      */
     private String ip;
     /**
-     * 服务器端口号（默认22）
+     * 应用发布的端口号
      */
     private Integer port;
     /**

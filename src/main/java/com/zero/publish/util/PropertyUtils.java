@@ -71,13 +71,4 @@ public class PropertyUtils {
         }
         return val;
     }
-
-    public static void main(String[] args) {
-        PropertyUtils pro = PropertyUtils.getInstance();
-        String mainProperty = pro.getProperty("custom.properties.main");
-        System.out.println(mainProperty);
-        System.out.println("================");
-        String profileProperty = pro.getProperty("dev.name");
-        System.out.println(profileProperty);
-    }
 }
