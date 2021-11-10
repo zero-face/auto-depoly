@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ResourceUtils;
 
+import javax.lang.model.element.VariableElement;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
@@ -88,9 +89,12 @@ public class ServerService {
             }
             //项目启动
             RemoteInvokeShell(connection, mergeCmd);
+
         }
 
     }
+
+
     /**
      * 生成发布命令
      * @param remoteUrl
